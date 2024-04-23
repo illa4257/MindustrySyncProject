@@ -1,5 +1,23 @@
-# Mindustry Java Mod Template
-A Java Mindustry mod template that works on Android and PC. The Kotlin version of this mod can be seen [here](https://github.com/Anuken/MindustryKotlinModTemplate).
+# Mindustry Sync Project
+A Java Mindustry Sync Project mod (MSP) that works on Android and PC.
+
+WIP
+
+ - [x] Copy schematics
+    - Just copy, it's not detecting if you deleted some schematics manually.
+    - It checks just by name, not by date or hash. 
+ - [ ] Copy saves
+ - [ ] Copy technologies progress
+ - [ ] A list of trusted devices for auto-sync
+
+### For developers (Addons)
+To `dependencies` or `softDependencies` add `mindustry-sync-project`.
+
+Also add this mod to your editor/compiler settings.
+
+To add a synchronization method, check `msp.ISyncService` and `msp.MindustrySyncProject#syncServices`, example `msp.base.LocalSyncService`.
+
+To add data, check `msp.ISyncData` and `msp.MindustrySyncProject#syncDataList`, example `msp.base.SchematicsData`.
 
 ## Building for Desktop Testing
 
@@ -21,7 +39,7 @@ To get a jar file that works for every platform, do the following:
 Building locally takes more time to set up, but shouldn't be a problem if you've done Android development before.
 1. Download the Android SDK, unzip it and set the `ANDROID_HOME` environment variable to its location.
 2. Make sure you have API level 30 installed, as well as any recent version of build tools (e.g. 30.0.1)
-3. Add a build-tools folder to your PATH. For example, if you have `30.0.1` installed, that would be `$ANDROID_HOME/build-tools/30.0.1`.
+3. Add a build-tools folder to your PATH. For msp, if you have `30.0.1` installed, that would be `$ANDROID_HOME/build-tools/30.0.1`.
 4. Run `gradlew deploy`. If you did everything correctlly, this will create a jar file in the `build/libs` directory that can be run on both Android and desktop. 
 
 ## Adding Dependencies
